@@ -11,13 +11,27 @@
 <body>
     <?php require_once('views/templates/header.php'); ?>
 
-    <div class="container">
-        <!-- Aquí puedes incluir el contenido de tu juego de Buscaminas -->
-        <h2>¡Bienvenido al juego de Buscaminas!</h2>
-        <!-- Agrega aquí la lógica y la interfaz del juego -->
-    </div>
+    <?php
+    require_once 'controllers/GameController.php';
+
+    $accion = isset($_GET['accion']) ? $_GET['accion'] : 'nuevoJuego';
+
+    // Crea una instancia del controlador Game
+    $controlador = new GameController();
+
+    // Llama al método correspondiente
+    if (method_exists($controlador, $accion)) {
+        $controlador->$accion();
+    } else {
+        // Manejar acciones desconocidas o inválidas
+        echo "Acción no válida.";
+    }
+    ?>
 
     <?php require_once('views/templates/footer.php'); ?>
+
 </body>
+
+
 
 </html>
