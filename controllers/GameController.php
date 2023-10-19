@@ -9,20 +9,28 @@ require 'models/GameModel.php';
 
 require_once 'models/GameModel.php';
 
-$rows = 8; // Número de filas
-$cols = 8; // Número de columnas
-$mines = 10; // Cantidad de minas
-
-$gameModel = new GameModel($rows, $cols, $mines);
-
+$gameController = new GameController();
+$grid = $gameController->nuevoJuego();
 
 require 'views/home.php'; // Carga la vista del juego
 
 class GameController
 {
+    private $rows = 8; // Número de filas
+    private $cols = 8; // Número de columnas
+    private $mines = 10; // Cantidad de minas
+
     public function nuevoJuego()
     {
         // Lógica para iniciar un nuevo juego
+        $gameModel = new GameModel($this->rows, $this->cols, $this->mines);
+
+        $grid = $gameModel->getGrid();
+
+        //echo "grid rows: ";
+        //print_r($grid);
+
+        return $grid;
     }
 
     public function hacerMovimiento()

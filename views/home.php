@@ -1,25 +1,11 @@
-<!DOCTYPE html>
-<html>
-
-<head>
-    <meta charset="UTF-8">
-    <title>Buscaminas</title>
-    <link rel="stylesheet" href="public/css/styles.css">
-</head>
-
-<body>
-    <div class="board">
-        <?php foreach ($gameModel->getGrid() as $row): ?>
-            <div class="row">
-                <?php foreach ($row as $cell): ?>
-                    <div class="cell">
-                        <?php echo $cell; ?>
-                    </div>
-                <?php endforeach; ?>
-            </div>
-        <?php endforeach; ?>
-    </div>
-
-</body>
-
-</html>
+<div class="board">
+    <?php foreach ($grid as $row): ?> <!-- Recorremos el grid, que es un array de filas -->
+        <div class="row">
+            <?php foreach ($row as $cell): ?> <!-- Recorremos el row, que es un array de celdas -->
+                <div class="cell">
+                    <?php echo $cell; ?> <!-- Cell contiene el valor 0 o -1, segun si es mina o no -->
+                </div>
+            <?php endforeach; ?>
+        </div>
+    <?php endforeach; ?>
+</div>
