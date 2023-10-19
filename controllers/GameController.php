@@ -1,24 +1,46 @@
 <?php
-
 require_once('models/Cell.php');
-
 require_once('models/Grid.php');
+require_once('models/GameModel.php');
 
-// En el controlador GameController.php
-require 'models/GameModel.php';
+if (isset($dificultad)) {
+    switch ($dificultad) {
+        case 'easy':
+            $rows = 5;
+            $cols = 5;
+            $mines = 5;
+            break;
+        case 'normal':
+            $rows = 8;
+            $cols = 8;
+            $mines = 8;
+            break;
+        case 'hard':
+            $rows = 12;
+            $cols = 12;
+            $mines = 12;
+            break;
+    }
 
-require_once 'models/GameModel.php';
+    $gameController = new GameController($rows, $cols, $mines);
+    $grid = $gameController->nuevoJuego();
 
-$gameController = new GameController();
-$grid = $gameController->nuevoJuego();
+    require 'views/game.php'; // Carga la vista del juego
+}
 
-require 'views/home.php'; // Carga la vista del juego
 
 class GameController
 {
-    private $rows = 8; // Número de filas
-    private $cols = 8; // Número de columnas
-    private $mines = 10; // Cantidad de minas
+    private $rows;
+    private $cols;
+    private $mines;
+
+    public function __construct($rows, $cols, $mines)
+    {
+        $this->rows = $rows;
+        $this->cols = $cols;
+        $this->mines = $mines;
+    }
 
     public function nuevoJuego()
     {
