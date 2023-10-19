@@ -6,6 +6,7 @@ body {
     min-height: 100vh; /* Hace que el cuerpo ocupe al menos el 100% de la altura de la ventana */
     display: flex;
     flex-direction: column;
+    align-items: center; /* Centra horizontalmente el contenido */
 }
 
 header {
@@ -13,6 +14,7 @@ header {
     background-color: #007bff; /* Color azul más oscuro para el encabezado */
     color: white;
     padding: 20px 0;
+    width: 100%; /* Ancho del 100% para que abarque toda la pantalla */
 }
 
 header h1 {
@@ -23,6 +25,7 @@ header h1 {
     flex-grow: 1; /* Hace que el contenido crezca para ocupar el espacio disponible */
     text-align: center;
     padding: 20px;
+    width: 100%; /* Ancho del 100% para que abarque toda la pantalla */
 }
 
 footer {
@@ -30,12 +33,32 @@ footer {
     background-color: #007bff; /* Color azul más oscuro para el pie de página */
     color: white;
     padding: 10px 0;
+    width: 100%; /* Ancho del 100% para que abarque toda la pantalla */
     position: absolute;
     bottom: 0; /* Fija el footer en la parte inferior de la pantalla */
-    width: 100%; /* Ancho del 100% para que abarque toda la pantalla */
 }
 
 /* Estilos específicos para el párrafo del pie de página */
 footer p {
     margin: 0;
+}
+
+.board {
+    display: flex;
+    flex-direction: column; /* Apila las filas verticalmente */
+    align-items: center; /* Centra horizontalmente las filas */
+    margin: 20px 0; /* Margen superior e inferior */
+}
+
+.row {
+    display: flex;
+}
+
+.cell {
+    width: 30px;
+    height: 30px;
+    border: 1px solid #000;
+    text-align: center;
+    font-size: 18px;
+    background-color: #ddd; /* Color de fondo de las celdas */
 }
