@@ -11,27 +11,23 @@
 <body>
     <?php require_once('views/templates/header.php'); ?>
 
-    <?php
-    require_once 'controllers/GameController.php';
+    <div id="main-content">
+        <?php
+        if ($_SERVER["REQUEST_METHOD"] === "POST") {
+            // Si nos llega POST es que el form esta enviado y cargamos el juego
+            $action = $_POST['action'];
+            $dificultad = $_POST['difficult'];
 
-    $accion = isset($_GET['accion']) ? $_GET['accion'] : 'nuevoJuego';
-
-    // Crea una instancia del controlador Game
-    $controlador = new GameController();
-
-    // Llama al método correspondiente
-    if (method_exists($controlador, $accion)) {
-        $controlador->$accion();
-    } else {
-        // Manejar acciones desconocidas o inválidas
-        echo "Acción no válida.";
-    }
-    ?>
+            require_once('controllers/GameController.php');
+        } else {
+            // Sino debemos mostrar el form
+            require_once('views/home.php');
+        }
+        ?>
+    </div>
 
     <?php require_once('views/templates/footer.php'); ?>
 
 </body>
-
-
 
 </html>
