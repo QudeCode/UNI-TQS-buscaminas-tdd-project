@@ -9,5 +9,12 @@
             "email": "101114118+quirosssssssss@users.noreply.github.com"
         }
     ],
-    "require": {}
+    "require": {},
+    "autoload": {
+        "psr-4":{
+            "Models\\": "src/models",
+            "Controllers\\": "src/controller"
+
+        }
+    }
 }

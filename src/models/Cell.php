@@ -1,13 +1,17 @@
 <?php
 
-class Cell {
+namespace Models;
+
+class Cell
+{
     private $isMine;
     private $isRevealed;
     private $isMarked;
     private $adjacentMines;
 
     // Constructor para inicializar la celda
-    public function __construct($isMine) {
+    public function __construct($isMine)
+    {
         $this->isMine = $isMine;
         $this->isRevealed = false;
         $this->isMarked = false;
