@@ -10,6 +10,12 @@ class Test extends TestCase
     {
         $this->assertInstanceOf(Cell::class, $cell);
     }
+    /** @test */
+    public function one_equals_one(){
+
+        $this->assertEquals(1,1);  
+    }
+
 
     /** @test */
     public function prueba()
