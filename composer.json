@@ -16,5 +16,8 @@
             "Controllers\\": "src/controller"
 
         }
+    },
+    "scripts": {
+        "execute-tests": "vendor/bin/phpunit tests"
     }
 }

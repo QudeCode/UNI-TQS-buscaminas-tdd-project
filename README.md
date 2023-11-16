@@ -38,7 +38,7 @@ composer install
 # Ejecución de pruebas
 Para ejecutar las pruebas unitarias, utiliza el siguiente comando:
 ```bash
-vendor/bin/phpunit tests
+composer execute-tests
 ```
 Esto ejecutará todas las pruebas unitarias del proyecto que se encuentran en el directorio tests/ y te mostrará los resultados en la consola.
 
