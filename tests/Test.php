@@ -16,7 +16,6 @@ class Test extends TestCase
         $this->assertEquals(1,1);  
     }
 
-
     /** @test */
     public function prueba()
     {
