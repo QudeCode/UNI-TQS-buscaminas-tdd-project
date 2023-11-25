@@ -6,7 +6,7 @@ use Models\Cell;
 class Test extends TestCase
 {
     /** @test */
-    public function oneIsone()
+    public function it_can_be_created_with_(Cell $cell)
     {
         $this->assertInstanceOf(Cell::class, $cell);
     }

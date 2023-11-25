@@ -10,18 +10,34 @@ Para jugar al buscaminas, necesitarás un servidor web local. Puedes utilizar he
 ## Requisitos
 
 - PHP 7.0 o superior
-Puedes verificar la versión de PHP que tienes instalada ejecutando el siguiente comando en la línea de comandos:
+    - Puedes verificar la versión de PHP que tienes instalada ejecutando el siguiente comando en la línea de comandos:
 ```bash
   php -v
 ```
 Puedes descargar PHP desde https://php.net.
-- Composer (para la gestión de dependencias de PHP). Puedes verificar la versión de Composer que tienes instalada ejecutando el siguiente comando en la línea de comandos:
+
+- Composer (para la gestión de dependencias de PHP). 
+    - Puedes verificar la versión de Composer que tienes instalada ejecutando el siguiente comando en la línea de comandos:
 ```bash
     composer --version
 ```
 Puedes descargar Composer desde https://getcomposer.org.
-- Herramienta para crear un servidor web local (como laragon https://laragon.org)
+
+- Herramienta para crear un servidor web local 
+    - (Herramientas como laragon https://laragon.org)
 - Navegador web 
+
+### Opcional
+
+- watchexec 1.23.0
+    - Puedes verificar la versión de watchexec que tienes instalada ejecutando el siguiente comando en la línea de comandos:
+```bash
+  watchexec --version
+```
+Puedes descargar watchexec desde windows ejecutando (con permisos de administrador):
+```bash
+  choco install watchexec 
+```
 
 ## Instalación
 
@@ -36,11 +52,17 @@ git clone https://github.com/QudeCode/TQS_buscaminas-tdd-project.git
 composer install
 ```
 # Ejecución de pruebas
-Para ejecutar las pruebas unitarias, utiliza el siguiente comando:
+Para ejecutar las pruebas unitarias, tenemos dos opciones:
+- Si tienes watchexec instalado, puedes usar:
 ```bash
 composer execute-tests
 ```
-Esto ejecutará todas las pruebas unitarias del proyecto que se encuentran en el directorio tests/ y te mostrará los resultados en la consola.
+Esto ejecutará en tiempo real todas las pruebas unitarias del proyecto que se encuentran en el directorio tests/ y te mostrará los resultados en la consola, y se volverán a ejecutar los tests cuando modifiques algun archivo de tests/ o de src/.
+- Si no tienes watchexec instalado, y solo dispones de composer puedes usar:
+```bash
+composer execute-tests_one_time
+```
+Esto ejecutará todas las pruebas unitarias del proyecto que se encuentran en el directorio tests/ una vez y te mostrará los resultados en la consola.
 
 # Uso
 Sigue estos pasos para utilizar el proyecto de buscaminas:
