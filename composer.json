@@ -16,5 +16,9 @@
             "Controllers\\": "src/controller"
 
         }
+    },
+    "scripts": {
+        "execute-tests_one_time": "vendor/bin/phpunit tests",
+        "execute-tests": "watchexec --exts php --watch src --watch tests -- composer execute-tests_one_time"
     }
 }
