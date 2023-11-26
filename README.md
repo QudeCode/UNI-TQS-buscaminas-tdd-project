@@ -38,6 +38,7 @@ Puedes descargar watchexec desde windows ejecutando (con permisos de administrad
 ```bash
   choco install watchexec 
 ```
+Puedes instalar chocolately desde https://docs.chocolatey.org/
 
 ## Instalación
 
