@@ -1,67 +1,109 @@
 <?php
-require_once('models/Cell.php');
-require_once('models/Grid.php');
-require_once('models/GameModel.php');
 
-if (isset($dificultad)) {
-    switch ($dificultad) {
-        case 'easy':
-            $rows = 5;
-            $cols = 5;
-            $mines = 5;
-            break;
-        case 'normal':
-            $rows = 8;
-            $cols = 8;
-            $mines = 8;
-            break;
-        case 'hard':
-            $rows = 12;
-            $cols = 12;
-            $mines = 12;
-            break;
+namespace Controllers;
+
+use Models\Grid;
+
+require_once __DIR__.'/../models/Cell.php';
+require_once __DIR__.'/../models/Grid.php';
+
+class GameController {
+    private Grid $grid;
+    private string $difficulty;
+    private int $mines;
+
+    public function __construct(string $difficulty) {
+        $this->difficulty = $difficulty;
+        $this->grid = new Grid($difficulty);
+
+        $this->initializeGame($difficulty);
     }
 
-    $gameController = new GameController($rows, $cols, $mines);
-    $grid = $gameController->nuevoJuego();
+    public function getGrid() {
+        return $this->grid;
+    }
 
-    require 'views/game.php'; // Carga la vista del juego
+    private function initializeGame($difficulty) {
+        switch($difficulty) {
+            case "easy":
+                $this->mines = 5;
+                break;
+            case "normal":
+                $this->mines = 10;
+                break;
+            case "hard":
+                $this->mines = 15;
+                break;
+            default:
+                $this->mines = 1;
+                break;
+        }
+        $this->insertMines($this->mines);
+        $this->insertValues();
+    }
+
+    private function insertMines($quant) {
+        $allIndices = range(0, $this->grid->getTotalCells() - 1);
+
+        $mineIndices = array_rand($allIndices, $quant);
+
+        foreach($mineIndices as $index) {
+            $row = (int)($index / count($this->grid->getGridArray()[0]));
+            $col = $index % count($this->grid->getGridArray()[0]);
+
+            // Establecer la celda como mina
+            $this->grid->setMines($row, $col);
+        }
+    }
+
+    private function insertValues() {
+        $rows = $this->grid->getRows();
+        $cols = $this->grid->getCols();
+
+        for($row = 0; $row < $rows; $row++) {
+            for($col = 0; $col < $cols; $col++) {
+                if(!$this->grid->getCell($row, $col)->isMine()) {
+                    $value = $this->getMinesAroundCell($row, $col);
+                    $this->grid->setValue($row, $col, $value);
+                }
+            }
+        }
+    }
+
+    // En la clase Grid
+    public function getMinesAroundCell($row, $col) {
+        $minesAround = 0;
+
+        // Definir las posiciones alrededor de la celda actual
+        $positions = [
+            [$row - 1, $col - 1], [$row - 1, $col], [$row - 1, $col + 1],
+            [$row, $col - 1], [$row, $col + 1],
+            [$row + 1, $col - 1], [$row + 1, $col], [$row + 1, $col + 1],
+        ];
+
+        foreach($positions as $position) {
+            $r = $position[0];
+            $c = $position[1];
+
+            if($r >= 0 && $r < $this->grid->getRows() && $c >= 0 && $c < $this->grid->getCols()) {
+                if($this->grid->getCell($r, $c)->isMine()) {
+                    $minesAround++;
+                }
+            }
+        }
+
+        return $minesAround;
+    }
+
 }
 
+if(isset($_GET["username"], $_GET["difficult"])) {
+    $username = $_GET["username"];
+    $dificulty = $_GET["difficult"];
 
-class GameController
-{
-    private $rows;
-    private $cols;
-    private $mines;
+    $game_controller = new GameController($dificulty);
 
-    public function __construct($rows, $cols, $mines)
-    {
-        $this->rows = $rows;
-        $this->cols = $cols;
-        $this->mines = $mines;
-    }
+    $grid = $game_controller->getGrid();
 
-    public function nuevoJuego()
-    {
-        // Lógica para iniciar un nuevo juego
-        $gameModel = new GameModel($this->rows, $this->cols, $this->mines);
-
-        $grid = $gameModel->getGrid();
-
-        //echo "grid rows: ";
-        //print_r($grid);
-
-        return $grid;
-    }
-
-    public function hacerMovimiento()
-    {
-        // Lógica para procesar el movimiento del usuario en el juego
-    }
-
-    public function guardarPuntuación()
-    {
-        // Lógica para guardar la puntuación del usuario
-    }
+    require __DIR__.'/../views/game.php';
 }

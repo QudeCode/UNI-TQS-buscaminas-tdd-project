@@ -1,3 +1,7 @@
+html{
+    background-color: #0056b3;
+}
+
 body {
     margin: 0;
     padding: 0;
@@ -70,7 +74,16 @@ footer p {
     border: 1px solid #000;
     text-align: center;
     font-size: 18px;
-    background-color: #ddd; /* Color de fondo de las celdas */
+    background-color: #ddd; 
+    padding: 5px;
+    line-height: 30px;
+    
+    cursor: pointer; 
+    transition: box-shadow 0.3s; 
+}
+
+.cell:hover {
+    box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.5); /* Añade una sombra sutil al hacer hover */
 }
 
 .form-container {

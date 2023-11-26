@@ -1,9 +1,12 @@
 <div class="board">
-    <?php foreach ($grid as $row): ?> <!-- Recorremos el grid, que es un array de filas -->
+    <?php foreach($grid->getGridArray() as $row): ?>
         <div class="row">
-            <?php foreach ($row as $cell): ?> <!-- Recorremos el row, que es un array de celdas -->
+            <?php foreach($row as $cell): ?>
                 <div class="cell">
-                    <?php echo $cell; ?> <!-- Cell contiene el valor 0 o -1, segun si es mina o no -->
+                    <?php
+                    // Muestra 'X' si la celda es una mina, de lo contrario muestra el contenido de la celda
+                    echo $cell->isMine() ? 'X' : $cell->getValue();
+                    ?>
                 </div>
             <?php endforeach; ?>
         </div>
