@@ -2,12 +2,14 @@
 
 Para jugar al buscaminas, necesitarás un servidor web local. Puedes utilizar herramientas como Laragon, XAMPP, MAMP, o cualquier otro servidor web local de tu elección. Una vez que tengas tu servidor web local configurado, abre el archivo index.php en tu navegador para jugar al buscaminas.
 
-# Buscaminas con TDD
+# Buscaminas con testing
 
-- Este es un proyecto de buscaminas desarrollado utilizando la metodología TDD (Desarrollo Guiado por Pruebas) y las tecnologías PHP, HTML, CSS y JavaScript. 
+- Este es un proyecto de buscaminas desarrollado utilizando la metodología TDD (Desarrollo Guiado por Pruebas) entre otras metodologías/herramientas de testing y las tecnologías PHP, HTML, CSS y JavaScript. 
 - Este proyecto se ha creado para la asignatura TQS (Test y Calidad del Software) de la UAB (Universidad Autónoma de Barcelona) en el curso 2023/24.
 
 ## Requisitos
+
+### PHP
 
 - PHP 7.0 o superior
     - Puedes verificar la versión de PHP que tienes instalada ejecutando el siguiente comando en la línea de comandos:
@@ -22,6 +24,20 @@ Puedes descargar PHP desde https://php.net.
     composer --version
 ```
 Puedes descargar Composer desde https://getcomposer.org.
+
+### NODE
+- Node.js y npm
+    - Puedes verificar la versión de Node.js que tienes instalada ejecutando el siguiente comando en la línea de comandos:
+    ```bash
+    node -v
+    ```
+    - Puedes verificar la versión de npm que tienes instalada ejecutando:
+    ```bash
+    npm -v
+    ```
+Puedes descargar Node.js y npm desde https://nodejs.org.
+
+### Servidor web
 
 - Herramienta para crear un servidor web local 
     - (Herramientas como laragon https://laragon.org)
@@ -52,7 +68,15 @@ git clone https://github.com/QudeCode/TQS_buscaminas-tdd-project.git
 ```bash
 composer install
 ```
+3. Instala las dependencias de Node.js utilizando npm:
+
+```bash
+npm install
+```
+
 # Ejecución de pruebas
+
+### PHP
 Para ejecutar las pruebas unitarias, tenemos dos opciones:
 - Si tienes watchexec instalado, puedes usar:
 ```bash
@@ -64,6 +88,17 @@ Esto ejecutará en tiempo real todas las pruebas unitarias del proyecto que se e
 composer execute-tests_one_time
 ```
 Esto ejecutará todas las pruebas unitarias del proyecto que se encuentran en el directorio tests/ una vez y te mostrará los resultados en la consola.
+
+### JS
+Para ejecutar las pruebas unitarias, tenemos dos opciones:
+- Si desea ejecutar las pruebas unitarias del proyecto y mostrar los resultados en la consola una vez:
+```bash
+npm test_one_time
+```
+- (Opcional) Si deseas ejecutar las pruebas en modo observador para que se vuelvan a ejecutar cuando cambies archivos, puedes usar:
+```bash
+npm test
+```
 
 # Uso
 Sigue estos pasos para utilizar el proyecto de buscaminas:
