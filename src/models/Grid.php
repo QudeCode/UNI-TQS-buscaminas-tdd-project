@@ -2,16 +2,18 @@
 
 namespace Models;
 
-class Grid {
+class Grid
+{
     private array $grid;
     private string $difficulty;
     private int $rows;
     private int $cols;
 
-    public function __construct($difficulty) {
+    public function __construct($difficulty)
+    {
         $this->difficulty = $difficulty;
 
-        switch($difficulty) {
+        switch ($difficulty) {
             case 'easy':
                 $this->rows = 5;
                 $this->cols = 5;
@@ -30,37 +32,44 @@ class Grid {
                 break;
         }
 
-        for($i = 0; $i < $this->rows; $i++) {
-            for($j = 0; $j < $this->cols; $j++) {
-                $this->grid[$i][$j] = new Cell();
+        for ($i = 0; $i < $this->rows; $i++) {
+            for ($j = 0; $j < $this->cols; $j++) {
+                $this->grid[$i][$j] = new Cell($i, $j);
             }
         }
     }
 
-    public function setMines($row, $col) {
+    public function setMines($row, $col)
+    {
         $this->grid[$row][$col]->setAsMine();
     }
 
-    public function setValue($row, $col, $value) {
+    public function setValue($row, $col, $value)
+    {
         $this->grid[$row][$col]->setValue($value);
     }
 
-    public function getGridArray() {
+    public function getGridArray()
+    {
         return $this->grid;
     }
 
-    public function getRows() {
+    public function getRows()
+    {
         return $this->rows;
     }
-    public function getCols() {
+    public function getCols()
+    {
         return $this->cols;
     }
 
-    public function getTotalCells() {
+    public function getTotalCells()
+    {
         return $this->rows * $this->cols;
     }
 
-    public function getCell($row, $col) {
+    public function getCell($row, $col)
+    {
         return $this->grid[$row][$col];
     }
 }
