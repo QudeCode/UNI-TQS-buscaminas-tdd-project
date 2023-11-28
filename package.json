@@ -1,11 +1,12 @@
 {
   "devDependencies": {
     "jest": "^29.7.0",
+    "jest-each": "^29.7.0",
     "jest-environment-jsdom": "^29.7.0"
   },
   "scripts": {
-    "test": "jest --watch",
+    "tests": "jest --watch",
     "test_onetime": "jest",
-    "path_coverage": "jest --coverage"
+    "paths": "jest --coverage"
   }
 }

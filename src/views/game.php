@@ -1,7 +1,7 @@
 <div class="board">
-    <?php foreach ($grid->getGridArray() as $row_d): ?>
+    <?php foreach($grid->getGridArray() as $row_d): ?>
         <div class="row">
-            <?php foreach ($row_d as $cell_d): ?>
+            <?php foreach($row_d as $cell_d): ?>
                 <div class="cell" id="<?php echo $cell_d->getRow() ?>_<?php echo $cell_d->getCol() ?>" onclick="minesweeperGame.openCell(
                     <?php echo $cell_d->getRow() ?>,<?php echo $cell_d->getCol() ?>)" oncontextmenu="minesweeperGame.handleRightClick(
                     <?php echo $cell_d->getRow() ?>,<?php echo $cell_d->getCol() ?>, event 
@@ -27,11 +27,19 @@
     </p>
 </div>
 
+<div id="result">
+    <p id="user_p"> User: <span id="user">
+            <?php echo $username; ?>
+        </span> </p>
+    <p> Score: <span id="score_res"></span> </p>
+
+</div>
+
 <div id="start" onclick="minesweeperGame.startGame(
     [
-    <?php foreach ($grid->getGridArray() as $row): ?>
+    <?php foreach($grid->getGridArray() as $row): ?>
         [
-        <?php foreach ($row as $cell):
+        <?php foreach($row as $cell):
             echo $cell->isMine() ? '-1' : $cell->getValue();
             ?>
             ,

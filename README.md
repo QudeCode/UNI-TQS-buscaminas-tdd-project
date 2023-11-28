@@ -84,7 +84,7 @@ npm install
 Para ejecutar las pruebas unitarias, tenemos dos opciones:
 - Si tienes watchexec instalado, puedes usar:
 ```bash
-composer execute-tests
+composer tests
 ```
 Esto ejecutará en tiempo real todas las pruebas unitarias del proyecto que se encuentran en el directorio tests/ y te mostrará los resultados en la consola, y se volverán a ejecutar los tests cuando modifiques algun archivo de tests/ o de src/.
 - Si no tienes watchexec instalado, y solo dispones de composer puedes usar:
@@ -101,11 +101,11 @@ npm test_one_time
 ```
 - (Opcional) Si deseas ejecutar las pruebas en modo observador para que se vuelvan a ejecutar cuando cambies archivos, puedes usar:
 ```bash
-npm test
+npm tests
 ```
-Para ver el path coverage:
+Para ver el path, statement, decision y condition coverage:
 ```bash
-npm run path_coverage
+npm run paths
 ```
 # Uso
 Sigue estos pasos para utilizar el proyecto de buscaminas:

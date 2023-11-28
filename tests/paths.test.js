@@ -1,8 +1,8 @@
-const MinesweeperGame = require('../src/public/js/gameFunctions');
+const MinesweeperGame = require('../src/public/js/gameFunctions.js');
 
 jest.useFakeTimers();
 
-describe('Game Functions', () => {
+describe('Path and functionallity tests', () => {
   beforeEach(() => {
     // Configurar el DOM antes de cada prueba
     document.body.innerHTML = `
@@ -11,6 +11,9 @@ describe('Game Functions', () => {
       <div id="mines">0</div>
       <div id="flags">0</div>
       <div id="time">0</div>
+      <div id="user"></div>
+      <div id="score_res"></div>
+      <div id="result"></div>
       <div id="0_0" style="background-color: #ddd;"></div>
       <div id="0_1" style="background-color: #ddd;"></div>
       <div id="0_2" style="background-color: #ddd;"></div>
@@ -223,8 +226,6 @@ describe('Game Functions', () => {
     const timeElement = document.getElementById('time');
     expect(timeElement.textContent).toBe('1');
   });
-
-  const MinesweeperGame = require('../src/public/js/gameFunctions');
 
   describe('Funciones del Juego', () => {
     test('Opening cell outside the board boundaries does nothing', () => {

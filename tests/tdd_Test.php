@@ -7,12 +7,10 @@ use Controllers\GameController;
 use Models\Grid;
 use Models\Cell;
 
-class GameControllerTest extends TestCase
-{
+class tdd_Test extends TestCase {
 
     /** @test */
-    public function GameControllerTest()
-    {
+    public function GameControllerTest() {
         $gameController = new GameController("easy");
         $this->assertInstanceOf(
             GameController::class,
@@ -22,8 +20,7 @@ class GameControllerTest extends TestCase
     }
 
     /** @test */
-    public function createGridIsFunction()
-    {
+    public function createGridIsFunction() {
         $gameController = new GameController("easy");
         $this->assertTrue(
             method_exists($gameController, 'getGrid'),
@@ -37,8 +34,7 @@ class GameControllerTest extends TestCase
     }
 
     /** @test */
-    public function createGridReturn()
-    {
+    public function createGridReturn() {
         $gameController = new GameController("easy");
 
         $grid = $gameController->getGrid();
@@ -52,8 +48,7 @@ class GameControllerTest extends TestCase
     }
 
     /** @test */
-    public function gridFormat()
-    {
+    public function gridFormat() {
         $gameController = new GameController("easy");
         $grid = $gameController->getGrid();
 
@@ -74,8 +69,8 @@ class GameControllerTest extends TestCase
 
         $cells = $grid->getGridArray();
 
-        foreach ($cells as $row) {
-            foreach ($row as $cell) {
+        foreach($cells as $row) {
+            foreach($row as $cell) {
                 $this->assertInstanceOf(
                     Cell::class,
                     $cell,
@@ -86,8 +81,7 @@ class GameControllerTest extends TestCase
     }
 
     /** @test */
-    public function cellStates()
-    {
+    public function cellStates() {
         $cell1 = new Cell(0, 0);
         $cell1->setState("mine");
 
@@ -118,8 +112,7 @@ class GameControllerTest extends TestCase
     }
 
     /** @test */
-    public function setMine()
-    {
+    public function setMine() {
         $grid = new Grid("easy");
         $grid->setMines(1, 1);
         $cell = $grid->getCell(1, 1);
@@ -132,8 +125,7 @@ class GameControllerTest extends TestCase
     }
 
     /** @test */
-    public function initializeGameTest()
-    {
+    public function initializeGameTest() {
         $gameController1 = new GameController("easy");
         $grid1 = $gameController1->getGrid();
 
@@ -163,8 +155,7 @@ class GameControllerTest extends TestCase
     }
 
     /** @test */
-    public function testGetMinesAroundCell()
-    {
+    public function testGetMinesAroundCell() {
         $gc = new GameController('normal');
         $grid = $gc->getGrid();
 
@@ -188,13 +179,12 @@ class GameControllerTest extends TestCase
         );
     }
 
-    private function countMines($grid)
-    {
+    private function countMines($grid) {
         $mineCount = 0;
 
-        for ($i = 0; $i < $grid->getRows(); $i++) {
-            for ($j = 0; $j < $grid->getCols(); $j++) {
-                if ($grid->getCell($i, $j)->isMine()) {
+        for($i = 0; $i < $grid->getRows(); $i++) {
+            for($j = 0; $j < $grid->getCols(); $j++) {
+                if($grid->getCell($i, $j)->isMine()) {
                     $mineCount++;
                 }
             }
@@ -203,4 +193,3 @@ class GameControllerTest extends TestCase
         return $mineCount;
     }
 }
-

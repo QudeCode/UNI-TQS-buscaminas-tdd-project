@@ -8,6 +8,7 @@ class MinesweeperGame {
         this.score = 0;
         this.flags = 0;
         this.mines = 0;
+        //this.mg_Ranking = new ManegeRanking();
     }
 
     // Función para iniciar el juego
@@ -39,7 +40,7 @@ class MinesweeperGame {
 
         // Verificar si la celda está fuera de los límites del tablero
         if (row < 0 || row >= rows || col < 0 || col >= cols) {
-            return;
+            return new Error('Celda fuera de los límites del tablero');
         }
 
         // FLAGED
@@ -183,13 +184,60 @@ class MinesweeperGame {
                     clearInterval(this.timer);
                     let score = (1 / this.timer) * this.diff * 100;
                     this.score = 1 + score.toFixed(2);
-                    alert("WIN! Score: " + this.score);
+                    //alert("WIN! Score: " + this.score);
+                    let user =  document.getElementById("user").innerHTML;
+                    document.getElementById("score_res").innerHTML = this.score;
+                    document.getElementById("result").style.visibility = "visible";
                     this.gameOver = true;
+
+                    //this.mg_Ranking.updateRanking(user, this.score);
                 }
             }
         }
     }
 }
+/** @todo */
+/*
+const fs = require('fs');
+class ManegeRanking {
+
+    RANKING_FILE_PATH = '../persistant/manegeRanking.json';
+
+    // Función para leer el archivo JSON del ranking
+    readRanking() {
+        try {
+            const data = fs.readFileSync(RANKING_FILE_PATH, 'utf8');
+            return JSON.parse(data);
+        } catch (error) {
+            // Si el archivo no existe o hay un error al leerlo, devuelve un objeto vacío
+            return {};
+        }
+    }
+
+    // Función para escribir el archivo JSON del ranking
+    writeRanking(ranking) {
+        fs.writeFileSync(RANKING_FILE_PATH, JSON.stringify(ranking, null, 2), 'utf8');
+    }
+
+    // Función para agregar o actualizar la puntuación de un usuario en el ranking
+    updateRanking(user, score) {
+        const ranking = readRanking();
+
+        // Actualizar la puntuación del usuario
+        ranking[user] = score;
+
+        // Ordenar el ranking por puntuación de mayor a menor (copiado)
+        const sortedRanking = Object.entries(ranking)
+            .sort((a, b) => b[1] - a[1])
+            .reduce((acc, [key, value]) => {
+                acc[key] = value;
+                return acc;
+            }, {});
+
+        // Escribir el ranking actualizado en el archivo
+        writeRanking(sortedRanking);
+    }
+}*/
 
 // Crear una instancia de la clase
 const minesweeperGame = new MinesweeperGame();
