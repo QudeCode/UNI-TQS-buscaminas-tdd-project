@@ -1,5 +1,5 @@
 module.exports = {
-    testEnvironment: 'node',
+    testEnvironment: 'jsdom',
     // Otros ajustes de configuración según tus necesidades
   };
   

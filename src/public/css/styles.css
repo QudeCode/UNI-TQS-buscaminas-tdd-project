@@ -82,6 +82,7 @@ footer p {
     flex-direction: column; /* Apila las filas verticalmente */
     align-items: center; /* Centra horizontalmente las filas */
     margin: 20px 0; /* Margen superior e inferior */
+    cursor: not-allowed;
 }
 
 .row {
@@ -100,7 +101,9 @@ footer p {
     
     cursor: pointer; 
     transition: box-shadow 0.3s; 
+
 }
+
 
 .cell:hover {
     box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.5); /* Añade una sombra sutil al hacer hover */
@@ -141,5 +144,52 @@ form input[type="submit"] {
 }
 
 form input[type="submit"]:hover {
+    background-color: #0056b3;
+}
+
+#mines_p {
+    visibility: hidden;
+}
+
+#score {
+    margin-left: 50px;
+    color: white;
+    font-family: Arial, sans-serif;
+    padding: 10px;
+    background-color: #007bff;
+    border: 1px solid #000000;
+    border-radius: 5px;
+    width: 100px;
+    text-align: center;
+  }
+
+#score p {
+margin: 5px 0;
+}
+
+#score span {
+font-weight: bold;
+color: white;
+}
+
+#start {
+    text-align: center;
+    padding: 20px;
+    position: fixed;
+    width: 70px;
+    height: 20px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    font-size: 18px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    margin-top: 500px;
+    border: 1px solid #000000;
+    border-radius: 5px;
+}
+
+#start:hover {
     background-color: #0056b3;
 }

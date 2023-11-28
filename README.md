@@ -25,7 +25,7 @@ Puedes descargar PHP desde https://php.net.
 ```
 Puedes descargar Composer desde https://getcomposer.org.
 
-### NODE
+### JS
 - Node.js y npm
     - Puedes verificar la versión de Node.js que tienes instalada ejecutando el siguiente comando en la línea de comandos:
     ```bash
@@ -36,6 +36,10 @@ Puedes descargar Composer desde https://getcomposer.org.
     npm -v
     ```
 Puedes descargar Node.js y npm desde https://nodejs.org.
+- JSDom
+  ```bash
+  npm install --save-dev jest-environment-jsdom
+  ```
 
 ### Servidor web
 
@@ -99,7 +103,10 @@ npm test_one_time
 ```bash
 npm test
 ```
-
+Para ver el path coverage:
+```bash
+npm run path_coverage
+```
 # Uso
 Sigue estos pasos para utilizar el proyecto de buscaminas:
 
