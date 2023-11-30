@@ -7,7 +7,7 @@ use Controllers\GameController;
 use Models\Grid;
 use Models\Cell;
 
-class GameControllerTest extends TestCase {
+class tdd_Test extends TestCase {
 
     /** @test */
     public function GameControllerTest() {
@@ -82,7 +82,7 @@ class GameControllerTest extends TestCase {
 
     /** @test */
     public function cellStates() {
-        $cell1 = new Cell;
+        $cell1 = new Cell(0, 0);
         $cell1->setState("mine");
 
         $this->assertEquals(
@@ -91,7 +91,7 @@ class GameControllerTest extends TestCase {
             "a cell could be setted as mine"
         );
 
-        $cell2 = new Cell;
+        $cell2 = new Cell(0, 0);
         $cell2->setState("empty");
 
         $this->assertEquals(
@@ -100,7 +100,7 @@ class GameControllerTest extends TestCase {
             "a cell could be setted as empty"
         );
 
-        $cell3 = new Cell;
+        $cell3 = new Cell(0, 0);
         $cell3->setState("marked");
 
         $this->assertEquals(
@@ -175,7 +175,8 @@ class GameControllerTest extends TestCase {
         $this->assertEquals(
             8,
             $minesAroundCell,
-            "The game should be able to calculate how many mines are arround a cell");
+            "The game should be able to calculate how many mines are arround a cell"
+        );
     }
 
     private function countMines($grid) {
@@ -192,4 +193,3 @@ class GameControllerTest extends TestCase {
         return $mineCount;
     }
 }
-

@@ -13,12 +13,12 @@
     "autoload": {
         "psr-4":{
             "Models\\": "src/models",
-            "Controllers\\": "src/controller"
+            "Controllers\\": "src/controllers"
 
         }
     },
     "scripts": {
         "execute-tests_one_time": "vendor/bin/phpunit tests",
-        "execute-tests": "watchexec --exts php --watch src --watch tests -- composer execute-tests_one_time"
+        "tests": "watchexec --exts php --watch src --watch tests -- composer execute-tests_one_time"
     }
 }

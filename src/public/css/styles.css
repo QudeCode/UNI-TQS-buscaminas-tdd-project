@@ -25,16 +25,36 @@ body {
 
 
 header {
-    text-align: center;
     background-color: #007bff;
     color: white;
     padding: 20px 0;
     width: 100%;
+    height: 5vh;
+    display: flex;
+    align-items: center;
+    position: relative;
+}
+
+header img {
+    height: 75px;
+    margin-left: 30%;
 }
 
 header h1 {
     margin: 0;
+    text-align: center;
+    font-family: 'Arial', sans-serif;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
 }
+
+/* Añade un espacio para el título */
+header img, header h1 {
+    flex: 1;
+}
+
 
 .container {
     flex-grow: 1;
@@ -62,6 +82,7 @@ footer p {
     flex-direction: column; /* Apila las filas verticalmente */
     align-items: center; /* Centra horizontalmente las filas */
     margin: 20px 0; /* Margen superior e inferior */
+    cursor: not-allowed;
 }
 
 .row {
@@ -80,7 +101,9 @@ footer p {
     
     cursor: pointer; 
     transition: box-shadow 0.3s; 
+
 }
+
 
 .cell:hover {
     box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.5); /* Añade una sombra sutil al hacer hover */
@@ -121,5 +144,52 @@ form input[type="submit"] {
 }
 
 form input[type="submit"]:hover {
+    background-color: #0056b3;
+}
+
+#mines_p {
+    visibility: hidden;
+}
+
+#score {
+    margin-left: 50px;
+    color: white;
+    font-family: Arial, sans-serif;
+    padding: 10px;
+    background-color: #007bff;
+    border: 1px solid #000000;
+    border-radius: 5px;
+    width: 100px;
+    text-align: center;
+  }
+
+#score p {
+margin: 5px 0;
+}
+
+#score span {
+font-weight: bold;
+color: white;
+}
+
+#start {
+    text-align: center;
+    padding: 20px;
+    position: fixed;
+    width: 70px;
+    height: 20px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    font-size: 18px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    margin-top: 500px;
+    border: 1px solid #000000;
+    border-radius: 5px;
+}
+
+#start:hover {
     background-color: #0056b3;
 }
