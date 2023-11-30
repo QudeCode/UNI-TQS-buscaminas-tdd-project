@@ -5,7 +5,7 @@
     <form onsubmit="submitForm(); return false">
         <div class="form-group">
             <label for="username">Nombre de usuario:</label>
-            <input type="text" name="username" id="username" required>
+            <input type="text" name="username" id="username" required maxlength="15">
         </div>
 
         <div class="form-group">
