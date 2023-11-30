@@ -2,37 +2,58 @@
 
 namespace Models;
 
-class Cell {
+class Cell
+{
     private string $state = "";
     private bool $isMine = false;
     private int $value;
+    private int $row;
+    private int $col;
 
-    // public function __construct() {
+    public function __construct($row, $col)
+    {
+        $this->row = $row;
+        $this->col = $col;
+    }
 
-    // }
-
-    public function setState($state_p) {
+    public function setState($state_p)
+    {
         $this->state = $state_p;
     }
 
-    public function getState() {
+    public function getState()
+    {
         return $this->state;
     }
 
-    public function setAsMine() {
+    public function setAsMine()
+    {
         $this->isMine = true;
         $this->state = "mine";
     }
 
-    public function isMine() {
+    public function isMine()
+    {
         return $this->isMine;
     }
 
-    public function setValue($value) {
+    public function setValue($value)
+    {
         $this->value = $value;
         $this->state = "empty";
     }
-    public function getValue() {
+    public function getValue()
+    {
         return $this->value;
+    }
+
+    public function getRow()
+    {
+        return $this->row;
+    }
+
+    public function getCol()
+    {
+        return $this->col;
     }
 }

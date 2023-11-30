@@ -7,9 +7,13 @@ use Controllers\GameController;
 use Models\Grid;
 use Models\Cell;
 
-class GameControllerTest extends TestCase {
+class tdd_Test extends TestCase {
 
     /** @test */
+    /*
+	 * description: Verifies the correct creation of an instance of GameController with the "easy" difficulty level.
+	 * type: TDD 
+	 */ 
     public function GameControllerTest() {
         $gameController = new GameController("easy");
         $this->assertInstanceOf(
@@ -18,8 +22,11 @@ class GameControllerTest extends TestCase {
             "gameController should be an instance of GameController"
         );
     }
-
     /** @test */
+      /*
+	 * description: Checks if the createGrid function exists and is callable in GameController.
+	 * type: TDD 
+	 */ 
     public function createGridIsFunction() {
         $gameController = new GameController("easy");
         $this->assertTrue(
@@ -34,6 +41,10 @@ class GameControllerTest extends TestCase {
     }
 
     /** @test */
+    /*
+	 * description: Ensures that the createGrid function returns something and that the result is an instance of the Grid class.
+     * type: TDD
+	 */ 
     public function createGridReturn() {
         $gameController = new GameController("easy");
 
@@ -48,6 +59,11 @@ class GameControllerTest extends TestCase {
     }
 
     /** @test */
+     /*
+	 * description: Verifies that the grid configuration in GameController is as expected for the "easy" 
+     * difficulty and that each element in the grid is an instance of Cell.
+     * type: TDD
+	 */ 
     public function gridFormat() {
         $gameController = new GameController("easy");
         $grid = $gameController->getGrid();
@@ -81,8 +97,12 @@ class GameControllerTest extends TestCase {
     }
 
     /** @test */
+     /*
+	 * description: Checks that a Cell object can be configured with different states such as "mine", "empty", and "marked".
+     * type: TDD
+	 */ 
     public function cellStates() {
-        $cell1 = new Cell;
+        $cell1 = new Cell(0, 0);
         $cell1->setState("mine");
 
         $this->assertEquals(
@@ -91,7 +111,7 @@ class GameControllerTest extends TestCase {
             "a cell could be setted as mine"
         );
 
-        $cell2 = new Cell;
+        $cell2 = new Cell(0, 0);
         $cell2->setState("empty");
 
         $this->assertEquals(
@@ -100,7 +120,7 @@ class GameControllerTest extends TestCase {
             "a cell could be setted as empty"
         );
 
-        $cell3 = new Cell;
+        $cell3 = new Cell(0, 0);
         $cell3->setState("marked");
 
         $this->assertEquals(
@@ -111,7 +131,11 @@ class GameControllerTest extends TestCase {
 
     }
 
-    /** @test */
+     /** @test */
+     /*
+	 * description: Ensures that a cell in the grid can be defined as a mine.
+     * type: TDD
+	 */ 
     public function setMine() {
         $grid = new Grid("easy");
         $grid->setMines(1, 1);
@@ -125,6 +149,11 @@ class GameControllerTest extends TestCase {
     }
 
     /** @test */
+     /*
+	 * description: Verifies that the game can be initialized with different difficulty levels
+     * ("easy", "normal", "hard") and that the correct number of mines is inserted into the grid.
+     * type: TDD
+	 */ 
     public function initializeGameTest() {
         $gameController1 = new GameController("easy");
         $grid1 = $gameController1->getGrid();
@@ -155,6 +184,10 @@ class GameControllerTest extends TestCase {
     }
 
     /** @test */
+     /*
+	 * description: Calculates how many mines are around a specific cell and verifies if the result is correct.
+     * type: TDD
+	 */ 
     public function testGetMinesAroundCell() {
         $gc = new GameController('normal');
         $grid = $gc->getGrid();
@@ -175,9 +208,15 @@ class GameControllerTest extends TestCase {
         $this->assertEquals(
             8,
             $minesAroundCell,
-            "The game should be able to calculate how many mines are arround a cell");
+            "The game should be able to calculate how many mines are arround a cell"
+        );
     }
 
+     /** @test */
+    /*
+    * description: Tests the countMines method to ensure accurate counting of mines in a grid.
+    * type: TDD
+    */
     private function countMines($grid) {
         $mineCount = 0;
 
@@ -192,4 +231,3 @@ class GameControllerTest extends TestCase {
         return $mineCount;
     }
 }
-
