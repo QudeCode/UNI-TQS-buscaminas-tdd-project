@@ -10,7 +10,7 @@
                     <!-- CONTENIDO DE LA CELDA -->
                     <?php
                     // Muestra 'X' si la celda es una mina, de lo contrario muestra el contenido de la celda
-                   // echo $cell_d->isMine() ? 'X' : $cell_d->getValue();
+                    // echo $cell_d->isMine() ? 'X' : $cell_d->getValue();
                     ?>
 
                 </div>
@@ -19,7 +19,7 @@
     <?php endforeach; ?>
 </div>
 
-<div id="score">
+<div id="score" class="boxDisplay">
     <p id="mines_p"> Mines found: <span id="mines">0</span> </p>
     <p> Time: <span id="time">0</span> </p>
     <p id="flags_p"> Flags: <span id="flags">0</span> /
@@ -27,7 +27,7 @@
     </p>
 </div>
 
-<div id="result">
+<div id="result" class="boxDisplay">
     <p id="user_p"> User: <span id="user">
             <?php echo $username; ?>
         </span> </p>
