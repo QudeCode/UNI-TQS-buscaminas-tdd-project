@@ -10,7 +10,7 @@
                     <!-- CONTENIDO DE LA CELDA -->
                     <?php
                     // Muestra 'X' si la celda es una mina, de lo contrario muestra el contenido de la celda
-                    echo $cell_d->isMine() ? 'X' : $cell_d->getValue();
+                   // echo $cell_d->isMine() ? 'X' : $cell_d->getValue();
                     ?>
 
                 </div>

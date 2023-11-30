@@ -51,6 +51,11 @@ formMock.appendChild(submitButton);
 document.body.innerHTML = '';
 document.body.appendChild(formMock);
 
+/** @test */
+/*
+ * description: Tests the submitForm function from the home.php file with a mock object for the form.
+ * type: Mock Object
+*/
 test('should call submitForm when the form is submitted', () => {
   // Llama a la función que maneja el envío del formulario
   submitForm();

@@ -1,5 +1,12 @@
 const MinesweeperGame = require('../src/public/js/gameFunctions.js');
 
+
+
+/** @test */
+/*
+ * description: Tests the MinesweeperGame class with different partitions and limit values.
+ * type: Limit values and border
+ */
 describe('Particions and limit values', () => {
   beforeEach(() => {
     // Configurar el DOM antes de cada prueba
@@ -23,6 +30,13 @@ describe('Particions and limit values', () => {
       <div id="2_2" style="background-color: #ddd;"></div>
     `;
   });
+
+
+/** @test */
+/*
+ * description: Tests the openCell function of the MinesweeperGame class with various partitions.
+ * type: Limit values and border
+*/
 
   describe('openCell', () => {
     const minesweeperGame = new MinesweeperGame();
@@ -121,6 +135,11 @@ describe('Particions and limit values', () => {
   });
 });
 
+/** @test */
+/*
+ * description: Tests the openCell function of the MinesweeperGame class with partition and limit values.
+ * type: Partition and limit values
+*/
 describe('Particions and limit values', () => {
     beforeEach(() => {
       // Configurar el DOM antes de cada prueba
@@ -185,6 +204,12 @@ describe('Particions and limit values', () => {
     });
 });
 
+
+/** @test */
+/*
+ * description: Tests the openCell function of the MinesweeperGame class with different test cases.
+ * type: Loop Testing
+*/
 describe('LoopTesting', () => {
     beforeEach(() => {
         // Configurar el DOM antes de cada prueba

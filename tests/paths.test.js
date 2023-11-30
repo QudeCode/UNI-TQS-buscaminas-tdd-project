@@ -2,6 +2,11 @@ const MinesweeperGame = require('../src/public/js/gameFunctions.js');
 
 jest.useFakeTimers();
 
+/**Test */
+/*
+ * description: Tests the MinesweeperGame class functions for path and functionality.
+ * type: Path Test
+*/
 describe('Path and functionallity tests', () => {
   beforeEach(() => {
     // Configurar el DOM antes de cada prueba
@@ -81,7 +86,11 @@ describe('Path and functionallity tests', () => {
     // Verifica que el estado del juego no haya cambiado después de la segunda llamada
     expect(minesweeperGame).toEqual(initialGameState);
   });
-
+  /** @test */
+  /*
+  * description: Tests the MinesweeperGame class openCell method to ensure it reveals the content of the cell and handles adjacent cells correctly.
+  * type: Path Test
+  */
   test('Open cell reveals the content of the cell and handles adjacent cells', () => {
     const minesweeperGame = new MinesweeperGame();
     const grid = [
@@ -178,7 +187,13 @@ describe('Path and functionallity tests', () => {
     expect(minesweeperGame.gameOver).toBe(true);
     expect(parseFloat(minesweeperGame.score)).toBeGreaterThan(0);
   });
-  
+
+
+  /** @test */
+  /*
+  * description: Tests the MinesweeperGame class for winning the game by correctly marking all mines and opening all non-mined cells.
+  * type: Path Test
+  */
   test('Losing the game', () => {
     const minesweeperGame = new MinesweeperGame();
     const grid = [
@@ -205,6 +220,12 @@ describe('Path and functionallity tests', () => {
     expect(minesweeperGame.score).toBe(0);
   });
 
+
+  /** @test */
+  /*
+  * description: Tests the MinesweeperGame class for the initialization of the timer and its ability to update the time element every second.
+  * type: Path Test
+  */
   test('Timer is initialized and updates time element every second', () => {
     const minesweeperGame = new MinesweeperGame();
     const grid = [
@@ -227,6 +248,13 @@ describe('Path and functionallity tests', () => {
     expect(timeElement.textContent).toBe('1');
   });
 
+
+  /** @test */
+  /*
+  * description: Tests the MinesweeperGame class for the behavior of opening a cell outside the board boundaries.
+  *              It should ensure that the game state remains unchanged when attempting to open cells beyond the board limits.
+  * type: Path Test
+  */
   describe('Funciones del Juego', () => {
     test('Opening cell outside the board boundaries does nothing', () => {
       const minesweeperGame = new MinesweeperGame();
@@ -278,6 +306,13 @@ describe('Path and functionallity tests', () => {
     // Verificar que el estado del juego no ha cambiado
     expect(minesweeperGame).toEqual(estadoInicial);
   });
+
+
+  /** @test */
+  /*
+  * description: Tests the MinesweeperGame class to ensure that opening a cell marked with a flag does nothing.
+  * type: Path Test
+  */
   test('Change cell state on right click if it is marked with a flag', () => {
     const minesweeperGame = new MinesweeperGame();
     const grid = [
