@@ -55,6 +55,8 @@ class MinesweeperGame {
             //alert("END");
             clearInterval(this.timer);
             document.getElementById("mines_p").style.visibility = "visible";
+            document.getElementById("result").style.visibility = "visible";
+
 
             // Iterar sobre todas las celdas después de perder
             for (let row = 0; row < rows; row++) {
@@ -189,6 +191,7 @@ class MinesweeperGame {
                     document.getElementById("score_res").innerHTML = this.score;
                     document.getElementById("result").style.visibility = "visible";
                     this.gameOver = true;
+
 
                     //this.mg_Ranking.updateRanking(user, this.score);
                 }
